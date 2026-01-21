@@ -1,0 +1,16 @@
+[Unit]
+Description=Auto-configure HMI logger based on hostname
+After=network.target
+Before=hmi-log-sync.service usb-gadget.service
+ConditionPathExists=!/etc/hmi_logger/.configured
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/auto_config.sh
+ExecStartPost=/bin/touch /etc/hmi_logger/.configured
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

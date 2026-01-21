@@ -1,0 +1,24 @@
+[Unit]
+Description=Sync HMI logs to SMB server
+After=network-online.target usb-gadget.service
+Wants=network-online.target
+Requires=usb-gadget.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/sync_logs.sh
+User=root
+Group=root
+StandardOutput=journal
+StandardError=journal
+
+# Allow enough time for sync to complete
+TimeoutStartSec=300
+TimeoutStopSec=180
+
+# Restart on failure after delay
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

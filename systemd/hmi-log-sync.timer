@@ -1,0 +1,15 @@
+[Unit]
+Description=Run HMI log sync every 10 minutes
+
+[Timer]
+# Wait 3 minutes after boot before first sync
+OnBootSec=3min
+# Run every 10 minutes
+OnUnitActiveSec=10min
+# Persist timer across reboots
+Persistent=true
+# Add some randomness to avoid all Pis syncing simultaneously
+RandomizedDelaySec=30
+
+[Install]
+WantedBy=timers.target
