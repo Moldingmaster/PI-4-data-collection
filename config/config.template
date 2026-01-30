@@ -9,9 +9,9 @@ PRESS_NAME="Press_{{PRESS_NUMBER}}"
 # SMB Server Configuration
 SMB_SERVER=10.69.1.52
 SMB_USER=ftp@maverickmolding.com
-SMB_PASS=blueisland
-SMB_DOMAIN=MAVERICKMOLDING
-SMB_SHARE=Press_{{PRESS_NUMBER}}
+SMB_PASS=blueisland20!
+# SMB_DOMAIN=MAVERICKMOLDING  # Commented out - not needed
+SMB_SHARE=HMI_Upload
 
 # Local paths (usually don't need to change)
 LOCAL_MOUNT=/mnt/smb_share
@@ -19,5 +19,4 @@ USB_IMAGE=/piusb.bin
 USB_MOUNT=/mnt/usb_share
 
 # Sync behavior
-# Files are organized by date on the SMB share
-# e.g., //server/Press_4/2024-01-15/datafile.log
+# Files sync directly to Press_N folder (no date subfolders)
