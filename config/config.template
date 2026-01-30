@@ -1,22 +1,12 @@
-# HMI Logger Configuration Template
-# Variables: {{PRESS_NUMBER}}, {{PRESS_NAME}}, {{HOSTNAME}}
-# These are automatically replaced by auto_config.sh
-
-# Press identification
+# HMI Logger Configuration - PRODUCTION
 PRESS_NUMBER={{PRESS_NUMBER}}
 PRESS_NAME="Press_{{PRESS_NUMBER}}"
 
-# SMB Server Configuration
 SMB_SERVER=10.69.1.52
 SMB_USER=ftp@maverickmolding.com
 SMB_PASS=blueisland20!
-# SMB_DOMAIN=MAVERICKMOLDING  # Commented out - not needed
 SMB_SHARE=HMI_Upload
 
-# Local paths (usually don't need to change)
 LOCAL_MOUNT=/mnt/smb_share
 USB_IMAGE=/piusb.bin
 USB_MOUNT=/mnt/usb_share
-
-# Sync behavior
-# Files sync directly to Press_N folder (no date subfolders)
