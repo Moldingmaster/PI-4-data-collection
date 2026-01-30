@@ -1,0 +1,18 @@
+[Unit]
+Description=HMI Real-time File Sync Watcher (No Disconnect)
+After=network-online.target usb-gadget.service
+Wants=network-online.target
+Requires=usb-gadget.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/watch_usb_no_disconnect.sh
+Restart=always
+RestartSec=10
+User=root
+Group=root
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
